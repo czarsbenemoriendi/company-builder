@@ -1,0 +1,22 @@
+[
+    {
+    "currency": "USD",
+    "exchangeRate": "4.00",
+    "symbol": "$"
+    },
+    {
+    "currency": "EUR",
+    "exchangeRate": "4.50",
+    "symbol": "€"
+    },
+    {   
+    "currency": "GBP",
+    "exchangeRate": "5.00",
+    "symbol": "£"
+    },
+    {
+    "currency": "PLN",
+    "exchangeRate": "1.00",
+    "symbol": "zł"
+    }
+]

@@ -1,15 +1,11 @@
-import { pwa } from './config/pwa'
-import { appDescription } from './constants/index'
-
 export default defineNuxtConfig({
   modules: [
     '@vueuse/nuxt',
-    '@unocss/nuxt',
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
-    '@vite-pwa/nuxt',
+    '@nuxtjs/tailwindcss',
   ],
-
+  ssr: false,
   experimental: {
     // when using generate, payload js assets included in sw precache manifest
     // but missing on offline, disabling extraction it until fixed
@@ -18,10 +14,15 @@ export default defineNuxtConfig({
     renderJsonPayloads: true,
   },
 
-  css: [
-    '@unocss/reset/tailwind.css',
-  ],
-
+  css: ['vuetify/lib/styles/main.sass'],
+  build: {
+    transpile: ['vuetify'],
+  },
+  vite: {
+    define: {
+      'process.env.DEBUG': false,
+    },
+  },
   colorMode: {
     classSuffix: '',
   },
@@ -49,14 +50,10 @@ export default defineNuxtConfig({
       ],
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: appDescription },
         { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
       ],
     },
   },
-
-  pwa,
-
   devtools: {
     enabled: true,
   },
