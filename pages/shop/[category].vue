@@ -1,15 +1,19 @@
 <script setup lang='ts'>
-const { products } = useCreateMapFromData()
+import { exchangeV } from '@/composables/takeValue'
+
+const { updatedProducts } = useCalculateValues()
+
 const route = useRoute()
 </script>
 
 <template>
   <div class="flex">
-    <div v-for="item in products" :key="item.productId">
+    <div v-for="item in updatedProducts" :key="item.productId">
       <div v-if="item.category === route.params.category">
         <CardProductCard :item="item" />
       </div>
     </div>
+    {{ exchangeV }}
     <NuxtPage />
   </div>
 </template>

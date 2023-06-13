@@ -1,8 +1,10 @@
 import { defineStore } from 'pinia'
 import currencyData from '@/data/currentExchangeRates.json'
+import { useCalculateValues } from '@/composables/calculateValues'
 
 export const useCurrentCurrencyStore = defineStore('currentCurrency', () => {
-  const exchangeData = ref(currencyData)
+  const { updatedProducts } = useCalculateValues()
+  const exchangeDataJson = ref(currencyData)
 
-  return { exchangeData }
+  return { updatedProducts, exchangeDataJson }
 })

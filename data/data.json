@@ -14,12 +14,12 @@
     "productId": 2,
     "productName": "Rabbit Hut",
     "productImg": "/animal-houses/budka-dla-nietoperzy-prostokat.webp",
-    "productDescription":"llore",
+    "productDescription": "llore",
     "productPrice": 200
   },
   {
     "category": "tree",
-    "animal": "squirrel" ,
+    "animal": "squirrel",
     "productId": 3,
     "productName": "Squirrel Home",
     "productImg": "/animal-houses/budka-dla-nietoperzy.jpg",
@@ -36,4 +36,3 @@
     "productPrice": 405
   }
 ]
-
