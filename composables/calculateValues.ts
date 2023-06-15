@@ -1,19 +1,13 @@
-import { useDataStore } from '@/stores/data'
-import { exchangeV } from '@/composables/takeValue'
+import { useProductsStore } from '@/stores/products'
+
+export const exchangeV = ref(1)
+export const symbolToPrint = ref('zł')
 
 export function useCalculateValues() {
-  const { products } = useDataStore()
+  const { arrayWithProducts } = useProductsStore()
 
-  // function updateProductPrice(products: ProductType[], exchangeRate: Ref<number>) {
-  //   for (let i = 0; i < products.length; i++) {
-  //     if (Object.hasOwn(products[i], 'productPrice'))
-
-  //       products[i].productPrice = products[i].productPrice * exchangeRate.value
-  //   }
-  //   return products
-  // }
   const updatedProducts = computed(() => {
-    return products.map((product) => {
+    return arrayWithProducts.map((product) => {
       if (Object.hasOwn(product, 'productPrice')) {
         return {
           ...product,
@@ -24,6 +18,5 @@ export function useCalculateValues() {
     })
   })
 
-  // const updatedProducts = updateProductPrice(products, multipler)
   return { updatedProducts }
 }

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { SfButton, SfCounter, SfIconFavorite, SfIconShoppingCart, SfLink, SfRating } from '@storefront-ui/vue'
+import { symbolToPrint } from '@/composables/calculateValues'
 import type { ProductType } from '~/types/main'
 
 const { item } = defineProps<{
@@ -46,7 +47,7 @@ const { item } = defineProps<{
       <p class="block py-2 font-normal leading-5 typography-text-sm text-neutral-700">
         {{ item.productDescription }}
       </p>
-      <span class="block pb-2 font-bold typography-text-lg">{{ item.productPrice }}</span>
+      <span class="block pb-2 font-bold typography-text-lg">{{ item.productPrice + symbolToPrint }}</span>
       <SfButton type="button" size="sm">
         <template #prefix>
           <SfIconShoppingCart size="sm" />

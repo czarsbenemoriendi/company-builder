@@ -5,8 +5,8 @@
     "productId": 1,
     "productName": "Bats",
     "productImg": "/animal-houses/budka-dla-nietoperzy-okrogla.webp",
-    "productDescription": "lorem",
-    "productPrice": 100
+    "productDescription": "Domek dla zwierząt",
+    "productPrice": 500
   },
   {
     "category": "ground",
@@ -14,8 +14,8 @@
     "productId": 2,
     "productName": "Rabbit Hut",
     "productImg": "/animal-houses/budka-dla-nietoperzy-prostokat.webp",
-    "productDescription": "llore",
-    "productPrice": 200
+    "productDescription": "Domek dla zwierząt",
+    "productPrice": 900
   },
   {
     "category": "tree",
@@ -23,7 +23,7 @@
     "productId": 3,
     "productName": "Squirrel Home",
     "productImg": "/animal-houses/budka-dla-nietoperzy.jpg",
-    "productDescription": "lorem",
+    "productDescription": "Domek dla zwierząt",
     "productPrice": 100
   },
   {
@@ -32,7 +32,7 @@
     "productId": 4,
     "productName": "Hedgehog House",
     "productImg": "/animal-houses/budka-dla-owadow-duza.webp",
-    "productDescription": "lorem",
+    "productDescription": "Domek dla zwierząt",
     "productPrice": 405
   }
 ]

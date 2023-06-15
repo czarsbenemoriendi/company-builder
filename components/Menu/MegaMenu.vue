@@ -2,24 +2,10 @@
 import {
   SfButton,
   SfDrawer,
-  SfIconClose,
   SfIconExpandMore,
-  SfListItem,
-  useDisclosure,
 } from '@storefront-ui/vue'
-import { useChangeCase } from '@vueuse/integrations/useChangeCase'
-import { useCreateMapFromData } from '~/composables/createMapFromData'
 
-const capitalize = useChangeCase
-const { categories, products } = useCreateMapFromData()
-
-const { isOpen, toggle, close } = useDisclosure()
-const menuRef = ref()
-const drawerRef = ref()
-
-onClickOutside(menuRef, () => {
-  close()
-})
+const { isOpen, toggle, menuRef, drawerRef } = useTopBar()
 </script>
 
 <template>
@@ -68,61 +54,9 @@ onClickOutside(menuRef, () => {
                   placement="top"
                   class="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed max-h-screen overflow-y-auto md:!absolute md:!top-[5rem] md:max-w-full md:p-6"
                 >
-                  <div class="flex items-center justify-between py-2 px-4 bg-primary-700 md:hidden">
-                    <div class="flex items-center typography-text-lg font-medium text-white">
-                      Browse products
-                    </div>
-                    <SfButton
-                      square
-                      variant="tertiary"
-                      aria-label="Close navigation menu"
-                      class="text-white"
-                      @click="close()"
-                      @keydown.enter.space="close()"
-                    >
-                      <SfIconClose />
-                    </SfButton>
-                  </div>
-                  <div
-                    v-for="(item, index) in categories"
-                    :key="index"
-                    class="[&:nth-child(2)]:pt-0 pt-6 md:pt-0"
-                  >
-                    <NuxtLink
-                      :to="{ path: `/shop/${item}/` }"
-                      role="presentation"
-                      class="typography-text-base font-medium text-neutral-900 whitespace-nowrap p-4 md:py-1.5"
-                    >
-                      {{ capitalize(item, 'sentenceCase').value }}
-                    </NuxtLink>
-                    <hr class="mb-3.5">
-                    <ul>
-                      <li v-for="{ animal, productId, category } in products" :key="productId">
-                        <nuxt-link :to="{ path: `/shop/${item}/${animal}` }">
-                          <SfListItem
-                            v-if="category === item"
-                            tag="a"
-                            href="#"
-                            size="sm"
-                            role="none"
-                            class="typography-text-base md:typography-text-sm py-4 md:py-1.5"
-                          >
-                            {{ capitalize(animal, 'sentenceCase').value }}
-                          </SfListItem>
-                        </nuxt-link>
-                      </li>
-                    </ul>
-                  </div>
-                  <SfButton
-                    square
-                    size="sm"
-                    variant="tertiary"
-                    aria-label="Close navigation menu"
-                    class="hidden md:block md:absolute md:right-0 hover:bg-white active:bg-white"
-                    @click="close()"
-                  >
-                    <SfIconClose class="text-neutral-500" />
-                  </SfButton>
+                  <MenuTopBarCloseItemsListOutside />
+                  <MenuTopBarProductItemsList />
+                  <MenuTopBarCloseItemsListBtn />
                 </SfDrawer>
               </transition>
             </li>

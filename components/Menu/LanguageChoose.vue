@@ -1,16 +1,16 @@
 <script lang="ts" setup>
 import { SfButton, SfDropdown, useDisclosure } from '@storefront-ui/vue'
 import { useCurrentCurrencyStore } from '@/stores/currentCurrency'
+import { exchangeV, symbolToPrint } from '@/composables/calculateValues'
 
 const { exchangeDataJson } = useCurrentCurrencyStore()
 const { isOpen, toggle } = useDisclosure()
 const selectedCurrency = ref('')
-const exchangeR = ref(1)
 
-function selectCurrency(currency: string, exchangeRate: number) {
+function selectCurrency(currency: string, exchangeRate: number, symbol: string) {
   selectedCurrency.value = currency
-  exchangeR.value = exchangeRate
-  useTakeValue(exchangeR)
+  exchangeV.value = exchangeRate
+  symbolToPrint.value = symbol
 }
 </script>
 
@@ -18,11 +18,11 @@ function selectCurrency(currency: string, exchangeRate: number) {
   <SfDropdown v-model="isOpen">
     <template #trigger>
       <SfButton @click="toggle()">
-        {{ selectedCurrency !== '' ? selectedCurrency : 'Choose currency' }}
+        {{ selectedCurrency !== '' ? selectedCurrency : 'PLN' }}
       </SfButton>
     </template>
     <ul v-for="{ symbol, currency, exchangeRate } in exchangeDataJson" :key="symbol" class="w- p-2 bg-[#018937]">
-      <button @click="selectCurrency(currency, exchangeRate)">
+      <button @click="selectCurrency(currency, exchangeRate, symbol)">
         {{ `${symbol} - ${currency}` }}
       </button>
     </ul>
@@ -30,7 +30,5 @@ function selectCurrency(currency: string, exchangeRate: number) {
 </template>
 
 <style scoped>
-.btn {
-  color: #018937;
-}
+
 </style>

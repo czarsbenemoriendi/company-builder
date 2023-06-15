@@ -13,17 +13,13 @@ import {
   useDropdown,
   useTrapFocus,
 } from '@storefront-ui/vue'
-import { useCreateMapFromData } from '~/composables/createMapFromData'
-import type { ProductType } from '~/types/main'
+
+import type { ProductType } from '@/types/main'
+import { useProductsStore } from '~/stores/products'
 
 const router = useRouter()
-const route = useRoute()
-const { products } = useCreateMapFromData()
-const inputModel = ref('')
-const inputRef = ref()
-const dropdownListRef = ref()
-const isLoadingSnippets = ref(false)
-const snippets = ref<{ highlight: string; rest: string; product: ProductType }[]>([])
+
+const { arrayWithProducts } = useProductsStore()
 const { isOpen, close, open } = useDisclosure()
 const { referenceRef, floatingRef, style } = useDropdown({
   isOpen,
@@ -31,13 +27,18 @@ const { referenceRef, floatingRef, style } = useDropdown({
   placement: 'bottom-start',
   middleware: [offset(4)],
 })
+
+const inputModel = ref('')
+const inputRef = ref()
+const dropdownListRef = ref()
+const isLoadingSnippets = ref(false)
+const snippets = ref<{ highlight: string; rest: string; product: ProductType }[]>([])
 useTrapFocus(dropdownListRef as Ref<HTMLElement>, { arrowKeysUpDown: true, activeState: isOpen, initialFocus: false })
 
 function submit() {
   close()
   if (inputModel.value === '')
     return
-
   router.push(`/shop/search?phrase=${inputModel.value}`)
 }
 
@@ -92,12 +93,12 @@ watchDebounced(
 const delay = () => new Promise(resolve => setTimeout(resolve, Math.random() * 1000))
 async function mockAutocompleteRequest(phrase: string) {
   await delay()
-  const results = products
-    .filter(product =>
+  const results = arrayWithProducts
+    .filter((product: ProductType) =>
       (product.productName.toLowerCase().startsWith(phrase.toLowerCase()))
       || (product.category.toLowerCase().startsWith(phrase.toLowerCase())) || (product.animal.toLowerCase().startsWith(phrase.toLowerCase())),
     )
-    .map((product) => {
+    .map((product: ProductType) => {
       const highlight = product.productName.substring(0, phrase.length)
       const rest = product.productName.substring(phrase.length)
       return { highlight, rest, product }
