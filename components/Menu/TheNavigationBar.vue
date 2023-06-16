@@ -1,11 +1,14 @@
 <script lang="ts" setup>
 import {
   SfButton,
+
   SfDrawer,
+
+  SfIconClose,
   SfIconExpandMore,
 } from '@storefront-ui/vue'
 
-const { isOpen, toggle, menuRef, drawerRef } = useTopBar()
+const { close, isOpen, toggle, menuRef, drawerRef } = useTopBar()
 </script>
 
 <template>
@@ -16,13 +19,7 @@ const { isOpen, toggle, menuRef, drawerRef } = useTopBar()
       class="flex justify-center w-full border-0 bg-primary-700 border-neutral-200 h-14 md:relative md:h-20 md:z-10"
     >
       <div class="flex items-center flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
-        <a
-          href="/"
-          aria-label="SF Homepage"
-          class="flex shrink-0 text-white mr-2 md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
-        >
-          <MenuLogo />
-        </a>
+        <MenuLogo />
         <nav class="flex w-full justify-between flex-nowrap" aria-label="SF Navigation">
           <ul>
             <li role="none">
@@ -37,7 +34,7 @@ const { isOpen, toggle, menuRef, drawerRef } = useTopBar()
                 <template #suffix>
                   <SfIconExpandMore />
                 </template>
-                <span class="hidden md:inline-flex">Browse products</span>
+                <span class="hidden md:inline-flex">Browse houses</span>
               </SfButton>
               <transition
                 enter-active-class="transform transition duration-500 ease-in-out"
@@ -54,18 +51,30 @@ const { isOpen, toggle, menuRef, drawerRef } = useTopBar()
                   placement="top"
                   class="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed max-h-screen overflow-y-auto md:!absolute md:!top-[5rem] md:max-w-full md:p-6"
                 >
-                  <MenuTopBarCloseItemsListOutside />
-                  <MenuTopBarProductItemsList />
-                  <MenuTopBarCloseItemsListBtn />
+                  <MenuProductsCloseItemsListOutside />
+                  <MenuProductsItemsList />
+                  <SfButton
+                    square
+                    size="sm"
+                    variant="tertiary"
+                    aria-label="Close navigation menu"
+                    class="hidden md:block md:absolute md:right-0 hover:bg-white active:bg-white"
+                    @click="close()"
+                  >
+                    <SfIconClose class="text-neutral-500" />
+                  </SfButton>
                 </SfDrawer>
               </transition>
             </li>
           </ul>
           <div />
           <div class="flex flex-nowrap justify-center items-center w-1/2">
-            <MenuLanguageChoose />
+            <MenuChoseRegion />
             <MenuSearchBar class="w-1/2" />
           </div>
+          <NuxtLink :to="{ path: `/create/new-product/add-new-product` }">
+            Add new product
+          </NuxtLink>
         </nav>
       </div>
     </header>

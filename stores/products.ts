@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { ProductType } from '~/types/main'
+import type { ProductType } from '@/types/main'
 
 const productsFetch = await useFetch('/api/productsData')
 

@@ -10,7 +10,7 @@ const { close } = useTopBar()
 <template>
   <div class="flex items-center justify-between py-2 px-4 bg-primary-700 md:hidden">
     <div class="flex items-center typography-text-lg font-medium text-white">
-      Browse products
+      Browse houses
     </div>
     <SfButton
       square

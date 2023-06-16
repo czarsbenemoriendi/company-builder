@@ -5,7 +5,7 @@ import {
 import { useChangeCase } from '@vueuse/integrations/useChangeCase'
 
 import { usePopHouseCategories } from '@/composables/popHouseCategories'
-import { useProductsStore } from '~/stores/products'
+import { useProductsStore } from '@/stores/products'
 
 export function useTopBar() {
   const capitalize = useChangeCase

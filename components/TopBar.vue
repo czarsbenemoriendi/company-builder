@@ -1,5 +1,5 @@
 <template>
   <nav class="text-center flex">
-    <MenuMegaMenu />
+    <MenuTheNavigationBar />
   </nav>
 </template>

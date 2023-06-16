@@ -4,13 +4,9 @@ const { updatedProducts } = useCalculateValues()
 </script>
 
 <template>
-  <div>
-    <div v-for="item in updatedProducts" :key="item.productId" class="flex">
-      <div v-if="item.productName === route.query.phrase || item.animal === route.query.phrase || item.category === route.query.phrase">
-        <CardProductCard :item="item" />
-      </div>
+  <div v-for="item in updatedProducts" :key="item.productId">
+    <div v-if="item.productName === route.query.phrase || item.animal === route.query.phrase || item.category === route.query.phrase">
+      <CardProduct :item="item" />
     </div>
   </div>
 </template>
-
-<style scoped></style>

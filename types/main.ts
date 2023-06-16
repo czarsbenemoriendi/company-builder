@@ -7,5 +7,13 @@ interface ProductType {
   productPrice: number
   productDescription: string
 }
-
-export type{ ProductType }
+interface SelectOption {
+  label: string
+  value: string
+}
+interface CurrencyType {
+  currency: string
+  exchangeRate: number
+  symbol: string
+}
+export type{ ProductType, SelectOption, CurrencyType }

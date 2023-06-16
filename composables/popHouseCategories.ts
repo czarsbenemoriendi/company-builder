@@ -1,4 +1,4 @@
-import { useProductsStore } from '../stores/products'
+import { useProductsStore } from '@/stores/products'
 
 export function usePopHouseCategories() {
   const { arrayWithProducts } = useProductsStore()

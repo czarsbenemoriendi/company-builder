@@ -1,7 +1,7 @@
 import { useProductsStore } from '@/stores/products'
 
-export const exchangeV = ref(1)
-export const symbolToPrint = ref('zł')
+const multipler = ref(1)
+const currencySymbol = ref('zł')
 
 export function useCalculateValues() {
   const { arrayWithProducts } = useProductsStore()
@@ -11,12 +11,12 @@ export function useCalculateValues() {
       if (Object.hasOwn(product, 'productPrice')) {
         return {
           ...product,
-          productPrice: product.productPrice * exchangeV.value,
+          productPrice: product.productPrice * multipler.value,
         }
       }
       return product
     })
   })
 
-  return { updatedProducts }
+  return { updatedProducts, multipler, currencySymbol }
 }

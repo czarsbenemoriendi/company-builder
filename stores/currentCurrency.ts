@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia'
-import currencyData from '@/data/currentExchangeRates.json'
-import { useCalculateValues } from '@/composables/calculateValues'
+import type { CurrencyType } from '@/types/main'
 
-export const useCurrentCurrencyStore = defineStore('currentCurrency', () => {
-  const { updatedProducts } = useCalculateValues()
-  const exchangeDataJson = ref(currencyData)
+const currencyData = await useFetch('/api/currencyData')
 
-  return { updatedProducts, exchangeDataJson }
+export const useCurrentCurrencyStore = defineStore('globalCurrencies', () => {
+  const globalCurrencies: Ref<CurrencyType[]> = ref(currencyData.data)
+
+  return { globalCurrencies }
 })

@@ -9,7 +9,12 @@ import {
 } from '@storefront-ui/vue'
 
 import type { ProductType } from '@/types/main'
-import { useProductsStore } from '~/stores/products'
+import { useProductsStore } from '@/stores/products'
+
+const inputModel = ref('')
+const inputRef = ref()
+const dropdownListRef = ref()
+const isLoadingSnippets = ref(false)
 
 export function useSearch() {
   const router = useRouter()
@@ -23,10 +28,6 @@ export function useSearch() {
     middleware: [offset(4)],
   })
 
-  const inputModel = ref('')
-  const inputRef = ref()
-  const dropdownListRef = ref()
-  const isLoadingSnippets = ref(false)
   const snippets = ref<{ highlight: string; rest: string; product: ProductType }[]>([])
   useTrapFocus(dropdownListRef as Ref<HTMLElement>, { arrowKeysUpDown: true, activeState: isOpen, initialFocus: false })
 
@@ -55,12 +56,12 @@ export function useSearch() {
     focusInput()
   }
 
-  const watchInput = watch(inputModel, () => {
+  watch(inputModel, () => {
     if (inputModel.value === '')
       reset()
   })
 
-  const getSnippets = watchDebounced(
+  watchDebounced(
     inputModel,
     () => {
       if (inputModel.value) {
@@ -83,8 +84,6 @@ export function useSearch() {
     },
     { debounce: 500 },
   )
-
-  // Just for presentation purposes. Replace mock request with the actual API call.
   const delay = () => new Promise(resolve => setTimeout(resolve, Math.random() * 1000))
   async function mockAutocompleteRequest(phrase: string) {
     await delay()
@@ -94,11 +93,11 @@ export function useSearch() {
       || (product.category.toLowerCase().startsWith(phrase.toLowerCase())) || (product.animal.toLowerCase().startsWith(phrase.toLowerCase())),
       )
       .map((product: ProductType) => {
-        const highlight = product.productName.substring(0, phrase.length)
-        const rest = product.productName.substring(phrase.length)
+        const highlight = product.productName.substring(0, phrase.length) || product.animal.substring(0, phrase.length) || product.category.substring(0, phrase.length)
+        const rest = product.productName.substring(phrase.length) || product.category.substring(phrase.length) || product.animal.substring(phrase.length)
         return { highlight, rest, product }
       })
     return results
   }
-  return { arrayWithProducts, isOpen, close, open, inputModel, inputRef, dropdownListRef, isLoadingSnippets, snippets, style, submit, reset, selectValue, delay, referenceRef, floatingRef, watchInput, getSnippets }
+  return { isOpen, close, open, inputModel, inputRef, dropdownListRef, isLoadingSnippets, snippets, style, submit, reset, selectValue, referenceRef, floatingRef }
 }

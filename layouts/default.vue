@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <Navigation />
+    <TopBar />
     <main class="px-10 py-20 text-center flex">
       <slot />
     </main>

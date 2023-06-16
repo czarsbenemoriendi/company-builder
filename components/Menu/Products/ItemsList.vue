@@ -38,5 +38,3 @@ const { capitalize, arrayWithProducts, houseCategories } = useTopBar()
     </ul>
   </div>
 </template>
-
-<style scoped></style>
