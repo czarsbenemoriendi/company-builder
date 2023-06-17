@@ -26,8 +26,6 @@ async function onSubmit(e: Event) {
       },
       body: formJSON,
     })
-    const { data } = useFetch(() => '/api/productsData')
-    console.log(data)
   }
   catch (error) {
     console.warn(error)

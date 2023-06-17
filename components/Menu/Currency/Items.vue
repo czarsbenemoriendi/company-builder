@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-const { selectCurrency, globalCurrencies } = usechoseCurrency()
+const { selectCurrency, globalCurrencies } = useChooseCurrency()
 </script>
 
 <template>

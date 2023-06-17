@@ -2,8 +2,8 @@ import { useDisclosure } from '@storefront-ui/vue'
 import { useCurrentCurrencyStore } from '@/stores/currentCurrency'
 
 const selectedCurrency = ref('')
-
-export function usechoseCurrency() {
+// useCurrency
+export function useChooseCurrency() {
   const { globalCurrencies } = useCurrentCurrencyStore()
   const { multipler, currencySymbol } = useCalculateValues()
   const { isOpen, toggle } = useDisclosure()

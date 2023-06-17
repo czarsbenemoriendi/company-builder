@@ -1,11 +1,15 @@
 import { defineStore } from 'pinia'
 import type { ProductType } from '@/types/main'
 
-const productsFetch = await useFetch('/api/productsData')
-
 export const useProductsStore = defineStore('products', () => {
-  const arrayWithProducts: Ref<ProductType[]> = ref(productsFetch.data)
-
+  const arrayWithProducts: Ref<ProductType[]> = ref([])
+  const main = async () => {
+    const productsFetch = await useFetch('/api/productsData')
+    if (productsFetch.data === null)
+      return
+    arrayWithProducts.value = productsFetch.data.value as ProductType[]
+  }
+  main()
   return { arrayWithProducts }
 },
 )

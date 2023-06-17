@@ -72,9 +72,11 @@ const { close, isOpen, toggle, menuRef, drawerRef } = useTopBar()
             <MenuChoseRegion />
             <MenuSearchBar class="w-1/2" />
           </div>
-          <NuxtLink :to="{ path: `/create/new-product/add-new-product` }">
-            Add new product
-          </NuxtLink>
+          <SfButton>
+            <NuxtLink :to="{ path: `/create/new-product/add-new-product` }">
+              Add new product
+            </NuxtLink>
+          </SfButton>
         </nav>
       </div>
     </header>

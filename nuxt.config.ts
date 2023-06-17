@@ -13,7 +13,6 @@ export default defineNuxtConfig({
     inlineSSRStyles: false,
     renderJsonPayloads: true,
   },
-
   css: ['vuetify/lib/styles/main.sass'],
   build: {
     transpile: ['vuetify'],
@@ -22,11 +21,11 @@ export default defineNuxtConfig({
     define: {
       'process.env.DEBUG': false,
     },
+
   },
   colorMode: {
     classSuffix: '',
   },
-
   nitro: {
     esbuild: {
       options: {
