@@ -35,6 +35,7 @@ export function useSearch() {
     close()
     if (inputModel.value === '')
       return
+
     router.push(`/shop/search?phrase=${inputModel.value}`)
   }
 

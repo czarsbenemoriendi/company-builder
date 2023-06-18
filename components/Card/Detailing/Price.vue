@@ -11,5 +11,8 @@ const { currencySymbol } = useCalculateValues()
 </script>
 
 <template>
-  <span class="block pb-2 font-bold typography-text-lg">{{ item.productPrice + currencySymbol }}</span>
+  <div>
+    <span v-if="currencySymbol === '$'">{{ currencySymbol + item.productPrice }}</span>
+    <span v-else class="block pb-2 font-bold typography-text-lg">{{ item.productPrice + currencySymbol }}</span>
+  </div>
 </template>

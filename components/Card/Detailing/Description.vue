@@ -8,7 +8,7 @@ defineProps<{
 
 <template>
   <div>
-    <p class="block py-2 font-normal leading-5 typography-text-sm text-neutral-700">
+    <p class="block py-2 font-normal leading-5 typography-text-sm text-white">
       {{ item.productDescription }}
     </p>
   </div>

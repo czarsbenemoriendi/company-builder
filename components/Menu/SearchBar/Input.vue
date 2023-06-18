@@ -5,7 +5,7 @@ import {
   SfInput,
 } from '@storefront-ui/vue'
 
-const { open, inputModel, inputRef } = useSearch()
+const { open, inputModel, inputRef, reset } = useSearch()
 </script>
 
 <template>
@@ -13,7 +13,7 @@ const { open, inputModel, inputRef } = useSearch()
     ref="inputRef"
     v-model="inputModel"
     aria-label="Search"
-    placeholder="Search 'Hedgehog House' or 'Rabbit hut'..."
+    placeholder="Search 'bats' or 'ground'..."
     @focus="open"
   >
     <template #prefix>

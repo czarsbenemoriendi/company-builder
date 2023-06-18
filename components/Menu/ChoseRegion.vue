@@ -8,7 +8,7 @@ const { selectedCurrency, isOpen, toggle, globalCurrencies } = useChooseCurrency
   <SfDropdown v-model="isOpen">
     <template #trigger>
       <SfButton @click="toggle()">
-        {{ selectedCurrency !== '' ? selectedCurrency : globalCurrencies[globalCurrencies.length - 1] }}
+        {{ selectedCurrency === '' ? globalCurrencies[globalCurrencies.length - 1].currency : selectedCurrency }}
       </SfButton>
     </template>
     <MenuCurrencyItems />

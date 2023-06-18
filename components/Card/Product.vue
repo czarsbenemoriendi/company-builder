@@ -7,7 +7,7 @@ const { item } = defineProps<{
 </script>
 
 <template>
-  <div class="border border-neutral-200 rounded-md hover:shadow-lg max-w-[300px]">
+  <div class="border border-neutral-200 rounded-md hover:shadow-lg max-w-[300px] hover:shadow-green-900">
     <div class="relative">
       <CardDetailingImg :item="item" />
       <CardDetailingAddToWishList />

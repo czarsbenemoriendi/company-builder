@@ -7,7 +7,7 @@ const { isOpen, dropdownListRef, isLoadingSnippets, snippets, style, submit, ref
 </script>
 
 <template>
-  <form ref="referenceRef" role="search" class="relative" @submit.prevent="submit">
+  <form ref="referenceRef" role="search" class="relative hover:w-full transition-all duration-300 " @submit.prevent="submit">
     <MenuSearchBarInput />
     <div v-if="isOpen" ref="floatingRef" :style="style" class="left-0 right-0">
       <div

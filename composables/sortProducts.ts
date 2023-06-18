@@ -1,6 +1,7 @@
 import { useCalculateValues } from '@/composables/calculateValues'
 
 const sortByPrice = ref(false)
+const isSorted = ref(false)
 export function useSortProducts() {
   const { updatedProducts } = useCalculateValues()
   const route = useRoute()
@@ -13,6 +14,7 @@ export function useSortProducts() {
   })
   function sort() {
     sortByPrice.value = !sortByPrice.value
+    isSorted.value = !isSorted.value
   }
-  return { route, sort, sortedProducts }
+  return { route, sort, sortedProducts, isSorted }
 }

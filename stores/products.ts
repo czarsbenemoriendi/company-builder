@@ -10,6 +10,6 @@ export const useProductsStore = defineStore('products', () => {
     arrayWithProducts.value = productsFetch.data.value as ProductType[]
   }
   main()
-  return { arrayWithProducts }
+  return { arrayWithProducts, main }
 },
 )

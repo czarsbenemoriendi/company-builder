@@ -1,6 +1,7 @@
 <script setup lang='ts'>
 const route = useRoute()
 const { updatedProducts } = useCalculateValues()
+console.log(route.query.phrase)
 </script>
 
 <template>

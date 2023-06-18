@@ -18,7 +18,7 @@ const { close, isOpen, toggle, menuRef, drawerRef } = useTopBar()
       ref="menuRef"
       class="flex justify-center w-full border-0 bg-primary-700 border-neutral-200 h-14 md:relative md:h-20 md:z-10"
     >
-      <div class="flex items-center flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
+      <div class="flex items-center flex-nowrap justify-start h-full max-w-[1536px] w-5/6 px-4 md:px-10">
         <MenuLogo />
         <nav class="flex w-full justify-between flex-nowrap" aria-label="SF Navigation">
           <ul>
@@ -69,7 +69,6 @@ const { close, isOpen, toggle, menuRef, drawerRef } = useTopBar()
           </ul>
           <div />
           <div class="flex flex-nowrap justify-center items-center w-1/2">
-            <MenuChoseRegion />
             <MenuSearchBar class="w-1/2" />
           </div>
           <SfButton>
@@ -77,6 +76,7 @@ const { close, isOpen, toggle, menuRef, drawerRef } = useTopBar()
               Add new product
             </NuxtLink>
           </SfButton>
+          <MenuChoseRegion />
         </nav>
       </div>
     </header>
