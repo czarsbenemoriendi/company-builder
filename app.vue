@@ -1,5 +1,5 @@
 <script setup lang="ts">
-useChoose()
+useChooseCurrency()
 </script>
 
 <template>
