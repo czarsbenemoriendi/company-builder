@@ -71,10 +71,10 @@ const { close, isOpen, toggle, menuRef, drawerRef } = useTopBar()
           <div class="flex flex-nowrap justify-center items-center w-1/2">
             <MenuSearchBar class="w-1/2" />
           </div>
-          <SfButton>
-            <NuxtLink :to="{ path: `/create/new-product/add-new-product` }">
+          <SfButton :disabled="true">
+            <p :to="{ path: `/create/new-product/add-new-product` }">
               Add new product
-            </NuxtLink>
+            </p>
           </SfButton>
           <MenuChoseRegion />
         </nav>
