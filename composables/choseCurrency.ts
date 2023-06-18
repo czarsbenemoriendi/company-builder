@@ -1,7 +1,7 @@
 import { useDisclosure } from '@storefront-ui/vue'
 import { useCurrentCurrencyStore } from '@/stores/currentCurrency'
 
-const selectedCurrency: Ref<string> = ref('')
+const selectedCurrency: Ref<string> = ref('PLN')
 // useCurrency
 export function useChooseCurrency() {
   const { globalCurrencies } = useCurrentCurrencyStore()

@@ -1,7 +1,3 @@
-<script setup lang="ts">
-useChooseCurrency()
-</script>
-
 <template>
   <NuxtLayout>
     <NuxtPage />
