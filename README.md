@@ -117,12 +117,12 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
 * [Storefront-UI](https://vuestorefront.io/storefront-ui)
 * [Pinia](https://pinia.vuejs.org/)
 * [Img Shields](https://shields.io)
 * [VueUse](https://vueuse.org/)
+* [Phind](https://www.phind.com/)
+* [ChatGPT](https://chat.openai.com//)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
